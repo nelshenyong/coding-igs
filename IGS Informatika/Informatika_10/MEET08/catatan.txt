@@ -1,0 +1,31 @@
+if...else : sturktur
+
+if (kondisi){
+    //block code
+}
+else if (kondisi) {
+    //block code
+}
+else {
+    //block code
+    switch case: struktur,
+    switch (expression)
+    {
+    case kondisi_1:
+        //block code
+        break;
+    
+    case kondisi_2:
+        //block code
+        break;
+    }
+}
+
+
+
+sturktur perulangan / for di c++:
+for (kondisi_awal; kondisi_boolean; kondisi_control){
+    //block code
+}
+
+perulangan dengan menampilkan angka 1 - 10

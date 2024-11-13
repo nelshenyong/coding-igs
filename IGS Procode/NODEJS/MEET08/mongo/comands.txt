@@ -1,0 +1,4 @@
+db.books.find({author : "Paulo Coelho"})
+db.books.find({rating : {$gt:4.5}})
+db.books.find({genres: { $all: [ "Thriller" ] },  "reviews.name": "Alice" }) 
+db.books.find({pages: { $lte: 400 }, rating: { $gt: 4.5 }, genres: { $all: [ "Fiction" ] } })

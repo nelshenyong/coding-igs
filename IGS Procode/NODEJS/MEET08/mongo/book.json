@@ -1,0 +1,68 @@
+db.books.insertMany([
+    {
+        "title": "The Silent Patient",
+        "author": "Alex MIchaelides",
+        "pages": 336,
+        "rating": 4.1,
+        "reviews": [
+            {"reviewer" : "ALice", "comment": "Thrilliing and unexpeted twists."},
+            {"reviewer" : "BOb", "comment": "Couldn't put it down."}
+        ],
+        "genres": ["Thriller", "Psychological"]
+    },
+    {
+        "title": "WHere the Crawdads Sing",
+        "author": "Delia Owens",
+        "pages": 384,
+        "rating": 4.5,
+        "reviews": [
+            {"reviewer" : "Cathy", "comment": "Beautifully written and touching."},
+            {"reviewer" : "Dan", "comment": "A must-read."}
+        ],
+        "genres": ["Fiction", "Mystery"]
+    },
+    {
+        "title": "Educated",
+        "author": "Tara Wetover",
+        "pages": 352,
+        "rating": 4.7,
+        "reviews": [
+            {"reviewer" : "Eva", "comment": "Instpiring and eye-opening."},
+            {"reviewer" : "Frank", "comment": "A story of resilience."}
+        ],
+        "genres": ["Memoir", "Non-ficiton"]
+    },
+    {
+        "title": "Becoming",
+        "author": "Michelle Obama",
+        "pages": 448,
+        "rating": 4.8,
+        "reviews": [
+            {"reviewer" : "Grace", "comment": "Powerful and insightful."},
+            {"reviewer" : "Frank", "comment": "An inspiring journey."}
+        ],
+        "genres": ["Biography", "Autobiography"]
+    },
+    {
+        "title": "The Alchemist",
+        "author": "Paulo Coelho",
+        "pages": 208,
+        "rating": 4.3,
+        "reviews": [
+            {"reviewer" : "Quinn", "comment": "Inspirational and uplifting."},
+            {"reviewer" : "Rachel", "comment": "A timeless tale."}
+        ],
+        "genres": ["Fiction", "Fantasy"]
+    },
+    {
+        "title": "To kill a Mockingbird",
+        "author": "Harper Lee",
+        "pages": 324,
+        "rating": 4.8,
+        "reviews": [
+            {"reviewer" : "Sam", "comment": "A profound impact."},
+            {"reviewer" : "Tina", "comment": "A masterpiece of American literature."}
+        ],
+        "genres": ["Fiction", "Classic"]
+    }
+])
