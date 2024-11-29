@@ -54,7 +54,7 @@ app.get('/books/:id', (req, res) => {
 
 app.delete('/books/:id', (req, res) => {
 
-      if (ObjectId.isValid(req.params.id)) {
+    if (ObjectId.isValid(req.params.id)) {
   
       db.collection('books')
         .deleteOne({_id: new ObjectId(req.params.id)})
@@ -62,11 +62,60 @@ app.delete('/books/:id', (req, res) => {
           res.status(200).json(result)
         })
         .catch(err => {
-          res.status(500).json({error: 'Could not delete the document'})
+          res.status(500).json({error: 'Could not fetch the document'})
         })
         
     } else {
-      res.status(500).json({error: 'Could not delete the document'})
+      res.status(500).json({error: 'Could not fetch the document'})
     }
   
 })
+
+app.post('/books', (req, res) => {
+  const book = req.body
+
+  db.collection('books')
+    .insertOne(book)
+    .then(result => {
+      res.status(201).json(result)
+    })
+    .catch(err => {
+      res.status(500).json({err: 'Could not create new document'})
+    })
+})
+
+app.patch('/books/:id', (req, res) => {
+  const updates = req.body
+  if (ObjectId.isValid(req.params.id)) {
+
+    db.collection('books')
+      .updateOne({_id: new ObjectId(req.params.id)} ,{$set: updates})
+      .then(result => {
+        res.status(200).json(result)
+      })
+      .catch(err => {
+        res.status(500).json({error: 'Could not update the document'})
+      })
+      
+  } else {
+    res.status(500).json({error: 'Could not update the document'})
+  }
+
+})
+
+app.put('/books/:id', (req, res) => {
+  const newBook = req.body;
+
+  if (ObjectId.isValid(req.params.id)) {
+    db.collection('books')
+      .replaceOne({ _id: new ObjectId(req.params.id) }, newBook)
+      .then(result => {
+        res.status(200).json(result);
+      })
+      .catch(err => {
+        res.status(500).json({ error: 'Could not update the document' });
+      });
+  } else {
+    res.status(500).json({ error: 'Invalid document ID' });
+  }
+});

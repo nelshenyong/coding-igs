@@ -1,10 +1,12 @@
+require('dotenv').config();
+const databaseUrl = process.env.DATABASE_URL;
 const { MongoClient } = require('mongodb')
 
-let dbConnection
+let dbConnection;
 
 module.exports = {
   connectToDb: (cb) => {
-    MongoClient.connect('mongodb://localhost:27017/bookstore')
+    MongoClient.connect(databaseUrl)
       .then(client => {
         dbConnection = client.db()
         return cb()
