@@ -1,9 +1,6 @@
-function Latest() {
-    return (
-        <div>
-            Latest
-        </div>
-    );
+function Latest(){
+    return(
+        <div>Latests</div>
+    )
 }
-
-export default Latest;
+export default Latest

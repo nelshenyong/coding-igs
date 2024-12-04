@@ -1,6 +1,6 @@
-import TicketList from "./TicketList";
+import TicketList from "./TicketList"
 
-function Tickets() {
+function Tickets(){
     return (
         <main>
             <nav>
@@ -9,9 +9,8 @@ function Tickets() {
                     <p><small>Currently open tickets</small></p>
                 </div>
             </nav>
-            <TicketList />
+            <TicketList/>
         </main>
-    );
+    )
 }
-
-export default Tickets;
+export default Tickets
