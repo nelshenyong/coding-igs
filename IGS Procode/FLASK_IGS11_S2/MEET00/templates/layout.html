@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ titleWeb }}</title>
+    <style>
+      nav {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+        align-items: center;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      h1 {
+        text-align: center;
+      }
+      hr {
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/blog">BLOG</a>
+      <a href="/about">ABOUT</a>
+      <a href="/contact">CONTACT</a>
+      <a href="/home">HOME</a>
+    </nav>
+    <h1>{{ titleWeb }}</h1>
+    <hr />
+    {% block master %} {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "layout.html" %} {% block master %}
+<h1>HOME...</h1>
+<p>{{ titleWeb }}</p>
+<table border="1">
+  <tr>
+    <th>AUTHOR</th>
+    <th>CONTENT</th>
+    <th>DATE</th>
+  </tr>
+  {% for dt in data %}
+  <tr>
+    <td>{{ dt.author }}</td>
+    <td>{{ dt.content }}</td>
+    <td>{{ dt.date }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<hr />
+{% if usia >= 20 %}
+<p>Bukan anak - anak</p>
+{% else %}
+<p>Anak - anak</p>
+{% endif %} {% endblock %}
