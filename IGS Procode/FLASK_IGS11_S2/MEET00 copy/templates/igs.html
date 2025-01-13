@@ -1,0 +1,35 @@
+{% extends "layout.html" %} {% block master %}
+
+<style>
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  li {
+    display: inline;
+    font-size: 40px;
+  }
+</style>
+<h1>IGS...</h1>
+
+<ul>
+  {% for item in data %}
+  <li
+    style="padding: 10px; margin: 5px; 
+               {% if loop.index0 % 3 == 0 %}
+               background-color: #f8b400;
+               {% elif loop.index0 % 3 == 1 %}
+               background-color: #4caf50;  
+               {% else %}
+               background-color: #2196f3;
+               {% endif %}"
+  >
+    {{ item }}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

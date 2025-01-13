@@ -17,6 +17,8 @@ data = [
     }
 ]      
 
+data2 = ["I", "G", "S"]
+
 @app.route("/")
 @app.route("/home")
 def home():
