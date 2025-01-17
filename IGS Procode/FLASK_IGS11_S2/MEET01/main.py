@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import *
 
 app = Flask(__name__)
 
@@ -13,7 +13,7 @@ def home():
     elif request.args["name"] == "budi":
         return redirect("/contact1")
     elif request.args["name"] == "latte":
-        return redirect("contact2")
+        return redirect(url_for("contact2"))
     else:
         return f"404 Not Found"
 
@@ -49,7 +49,7 @@ def hitung():
 
 @app.route('/contact1')
 def contact2():
-    return "Kontak Keffe"
+    return "<h1>Contact page</h1>"
 
 if __name__ == "__main__":
     app.run(debug=True)
