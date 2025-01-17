@@ -5,9 +5,17 @@ app = Flask(__name__)
 @app.route('/')
 @app.route("/home")
 def home():
-    name = "budi"
-    umur = "13"
-    return render_template("home.html", name=name, umur=umur)
+    if 'name' in request.args.keys() and 'umur' in request.args.keys():
+        name = request.args.get("name")
+        umur = int(request.args.get("umur"))
+        # or request.args["name"]
+        return render_template("home.html", name=name, umur=umur)
+    elif request.args["name"] == "budi":
+        return redirect("/contact1")
+    elif request.args["name"] == "latte":
+        return redirect("contact2")
+    else:
+        return f"404 Not Found"
 
 @app.route("/hitung")
 def hitung():
@@ -38,6 +46,10 @@ def hitung():
         return "Operator salah. Gunakan 'sum', 'sub', 'mul', atau 'div'.", 400
 
     return render_template("hitung.html", a1=angka1, a2=angka2, op=operator, hasil=hasil)
+
+@app.route('/contact1')
+def contact2():
+    return "Kontak Keffe"
 
 if __name__ == "__main__":
     app.run(debug=True)
