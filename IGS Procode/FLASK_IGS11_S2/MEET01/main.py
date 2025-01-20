@@ -51,5 +51,9 @@ def hitung():
 def contact2():
     return "<h1>Contact page</h1>"
 
+@app.route('/tester/<string:kata>/<int:angka>')
+def tester(kata, angka):
+    return render_template('tester.html', kata=kata, angka=angka)
+
 if __name__ == "__main__":
     app.run(debug=True)

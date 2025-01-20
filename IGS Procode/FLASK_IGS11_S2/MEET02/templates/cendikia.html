@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block content %}
+<h1>CENDIKIA...</h1>
+<main>
+  <div class="logo">
+    <img
+      src="{{ url_for('static', filename='assets/icon/Logo2.png') }}"
+      alt=""
+    />
+    <span>Cendikia</span>
+  </div>
+  <form action="{{ url_for('search') }}" method="post" id="searchCendikia">
+    <input name="keyword" />
+    <a href="#" id="submitBar" onclick="myFunc()">🔍</a>
+  </form>
+</main>
+{% endblock %}
