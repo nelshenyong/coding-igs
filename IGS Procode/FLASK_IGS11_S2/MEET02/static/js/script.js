@@ -1,3 +1,3 @@
-function MyFunction() {
+function myFunc() {
   document.getElementById("searchCendikia").submit();
 }
