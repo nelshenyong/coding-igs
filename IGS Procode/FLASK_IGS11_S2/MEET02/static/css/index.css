@@ -73,3 +73,10 @@ form {
   justify-content: center;
   gap: 2vh;
 }
+
+#submitBar {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
