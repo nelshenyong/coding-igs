@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block content %}
+<header>
+  <h1>FORM BIODATA</h1>
+</header>
+
+<main>
+  <form action="{{ url_for('bio') }}" method="post">
+    <label for="nama">Nama: </label>
+    <input type="text" name="nama" id="nama" required />
+
+    <label for="kelas">Kelas: </label>
+    <input type="number" name="kelas" id="kelas" min="10" max="12" required />
+
+    <label for="email">Email: </label>
+    <input type="email" name="email" id="email" required />
+
+    <fieldset>
+      <legend>Tempat, Tanggal Lahir</legend>
+      <label for="tempat">Tempat: </label>
+      <input type="text" name="tempat" id="tempat" required />
+      <label for="tgl">Tanggal: </label>
+      <input type="date" name="tgl" id="tgl" required />
+    </fieldset>
+  </form>
+</main>
+{% endblock %}
