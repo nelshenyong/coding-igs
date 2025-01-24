@@ -1,20 +1,57 @@
 {% extends "base.html" %} {% block content %}
-<header>
-  <h1>FORM BIODATA</h1>
+<head>
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/index.css') }}"
+  />
+</head>
+
+<header data-aos="fade-down" data-aos-duration="1000" data-aos-delay="200">
+  <img
+    src="{{ url_for('static', filename='images/user.png') }}"
+    alt="Logo"
+    class="logo"
+    data-aos="flip-left"
+    data-aos-duration="1200"
+  />
+  <h1 data-aos="zoom-in" data-aos-delay="500">FORM BIODATA</h1>
 </header>
 
-<main>
+<main data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
   <form action="{{ url_for('bio') }}" method="post">
     <label for="nama">Nama: </label>
-    <input type="text" name="nama" id="nama" required />
+    <input
+      type="text"
+      name="nama"
+      id="nama"
+      required
+      data-aos="fade-right"
+      data-aos-delay="600"
+    />
 
     <label for="kelas">Kelas: </label>
-    <input type="number" name="kelas" id="kelas" min="10" max="12" required />
+    <input
+      type="number"
+      name="kelas"
+      id="kelas"
+      min="10"
+      max="12"
+      required
+      data-aos="fade-left"
+      data-aos-delay="700"
+    />
 
     <label for="email">Email: </label>
-    <input type="email" name="email" id="email" required />
+    <input
+      type="email"
+      name="email"
+      id="email"
+      required
+      data-aos="fade-right"
+      data-aos-delay="800"
+    />
 
-    <fieldset>
+    <fieldset data-aos="flip-up" data-aos-delay="100">
       <legend>Tempat, Tanggal Lahir</legend>
       <label for="tempat">Tempat: </label>
       <input type="text" name="tempat" id="tempat" required />
@@ -22,11 +59,11 @@
       <input type="date" name="tgl" id="tgl" required />
     </fieldset>
 
-    <fieldset>
+    <fieldset data-aos="flip-up" data-aos-delay="100">
       <legend>Cita - Cita</legend>
-      <label for="programmer">programmer</label>
+      <label for="programmer">Programmer</label>
       <input type="radio" name="cita" id="programmer" value="programmer" />
-      <label for="bukanprogrammer">bukan programmer</label>
+      <label for="bukanprogrammer">Bukan Programmer</label>
       <input
         type="radio"
         name="cita"
@@ -35,8 +72,8 @@
       />
     </fieldset>
 
-    <label for="agama"></label>
-    <select name="agama" id="agama">
+    <label for="agama">Agama: </label>
+    <select name="agama" id="agama" data-aos="zoom-in" data-aos-delay="100">
       <option value="islam">Islam</option>
       <option value="kristen">Kristen</option>
       <option value="katolik">Katolik</option>
@@ -46,9 +83,17 @@
     </select>
 
     <label for="tentang">Tentang: </label>
-    <textarea name="tentang" id="tentang" cols="30" rows="10"></textarea>
+    <textarea
+      name="tentang"
+      id="tentang"
+      cols="30"
+      rows="10"
+      data-aos="fade-left"
+      data-aos-delay="100"
+    ></textarea>
 
     <button type="submit">Submit</button>
   </form>
 </main>
+
 {% endblock %}

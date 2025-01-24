@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block content %}
+<head>
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/bio.css') }}"
+  />
+</head>
+
+<header>
+  <h1>DATA BIODATA</h1>
+</header>
+
+<main>
+  <p>
+    <b>Nama: </b>
+    <br />
+    {{ nama }}
+  </p>
+
+  <p>
+    <b>Kelas: </b>
+    <br />
+    {{ kelas }}
+  </p>
+
+  <p>
+    <b>Email: </b>
+    <br />
+    {{ email }}
+  </p>
+
+  <p>
+    <b>Tempat, Tanggal Lahir: </b>
+    <br />
+    {{ tempat }}, {{ tgl }}
+  </p>
+
+  <p>
+    <b>Cita - Cita: </b>
+    <br />
+    {{ cita }}
+  </p>
+
+  <p>
+    <b>Agama: </b>
+    <br />
+    {{ agama }}
+  </p>
+
+  <p>
+    <b>Tentang: </b>
+    <br />
+    {{ tentang }}
+  </p>
+</main>
+
+<a href="{{ url_for('home') }}">BACK</a>
+{% endblock %}

@@ -1,0 +1,106 @@
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+  background-size: 400% 400%;
+  animation: gradientBackground 10s ease infinite;
+  margin: 0;
+  padding: 0;
+  color: #444;
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header .logo {
+  width: 100px;
+  margin-bottom: 10px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+main {
+  max-width: 600px;
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+}
+
+input,
+select,
+textarea {
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: rgb(255, 213, 213);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #ff6f61;
+  box-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
+  outline: none;
+}
+
+fieldset {
+  border: 2px solid #ff6f61;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+legend {
+  font-weight: bold;
+  color: #ff6f61;
+  padding: 0 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #ff6f61, #fbc2eb);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #fbc2eb, #ff6f61);
+  transform: scale(1.05);
+}
+
+/* AOS Enhancements */
+[data-aos] {
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
