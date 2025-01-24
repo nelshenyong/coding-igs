@@ -21,6 +21,34 @@
       <label for="tgl">Tanggal: </label>
       <input type="date" name="tgl" id="tgl" required />
     </fieldset>
+
+    <fieldset>
+      <legend>Cita - Cita</legend>
+      <label for="programmer">programmer</label>
+      <input type="radio" name="cita" id="programmer" value="programmer" />
+      <label for="bukanprogrammer">bukan programmer</label>
+      <input
+        type="radio"
+        name="cita"
+        id="bukanprogrammer"
+        value="bukanprogrammer"
+      />
+    </fieldset>
+
+    <label for="agama"></label>
+    <select name="agama" id="agama">
+      <option value="islam">Islam</option>
+      <option value="kristen">Kristen</option>
+      <option value="katolik">Katolik</option>
+      <option value="hindu">Hindu</option>
+      <option value="budha">Buddha</option>
+      <option value="konghucu">Konghucu</option>
+    </select>
+
+    <label for="tentang">Tentang: </label>
+    <textarea name="tentang" id="tentang" cols="30" rows="10"></textarea>
+
+    <button type="submit">Submit</button>
   </form>
 </main>
 {% endblock %}
