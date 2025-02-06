@@ -9,6 +9,11 @@ dataUsers = [
         'username': 'admin',
         'password': 'admin',
         'role': 'admin'
+    },
+    {
+        'username': 'guest',
+        'password': 'guest',
+        'role': 'guest'
     }
 ]
 
@@ -19,23 +24,40 @@ def home():
 
 @app.route('/admin')
 def admin():
-    if session.get('user'):
+    if 'user' in session and session['user'] == dataUsers[0]['username']:
         return render_template('admin.html')
     else:
         return redirect(url_for('login'))
+
+@app.route('/guest')
+def guest():
+    if 'user' in session and session['user'] == dataUsers[1]['username']:
+        return render_template('guest.html')
+    else:
+        return redirect(url_for('login'))
+
+@app.route('/logout')
+def logout():
+    session.pop('user', None)
+    return redirect(url_for('login'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        if username == dataUsers[0]["username"] and password == dataUsers[0]["password"]:
-            session['user'] = username
-            return redirect(url_for('admin'))
-        else:
-            return render_template('login.html')
-    else:
-        return render_template('login.html')
+        
+        for user in dataUsers:
+            if username == user['username'] and password == user['password']:
+                session['user'] = username
+                if user['role'] == 'admin':
+                    return redirect(url_for('admin'))
+                elif user['role'] == 'guest':
+                    return redirect(url_for('guest'))
+        
+        return render_template('login.html', error="Invalid username or password")
+    
+    return render_template('login.html')
 
 @app.route('/bio', methods=['GET', 'POST'])
 def bio():
