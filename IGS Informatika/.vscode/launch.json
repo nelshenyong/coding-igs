@@ -1,0 +1,63 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "JadwalSekolah",
+            "request": "launch",
+            "mainClass": "JadwalSekolah",
+            "projectName": "IGS Informatika_5a558083"
+        },
+        {
+            "type": "java",
+            "name": "SelectionSirSepri",
+            "request": "launch",
+            "mainClass": "SelectionSirSepri",
+            "projectName": "IGS Informatika_5a558083"
+        },
+        {
+            "type": "java",
+            "name": "SelectionSort",
+            "request": "launch",
+            "mainClass": "SelectionSort",
+            "projectName": "IGS Informatika_5a558083"
+        },
+        {
+            "type": "java",
+            "name": "Soal1",
+            "request": "launch",
+            "mainClass": "Soal1",
+            "projectName": "IGS Informatika_5a558083"
+        },
+        {
+            "type": "java",
+            "name": "Soal31",
+            "request": "launch",
+            "mainClass": "Soal31",
+            "projectName": "IGS Informatika_5a558083"
+        },
+        {
+            "type": "java",
+            "name": "Soal7",
+            "request": "launch",
+            "mainClass": "Soal7",
+            "projectName": "IGS Informatika_5a558083"
+        },
+        {
+            "type": "java",
+            "name": "Soal8",
+            "request": "launch",
+            "mainClass": "Soal8",
+            "projectName": "IGS Informatika_5a558083"
+        }
+    ]
+}
