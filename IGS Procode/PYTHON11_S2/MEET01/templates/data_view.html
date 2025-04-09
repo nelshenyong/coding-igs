@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Kota</title>
+  </head>
+  <body>
+    <h2>Daftar Kota</h2>
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Nama Kota</th>
+        <th>Aksi</th>
+      </tr>
+      {% for kota in data %}
+      <tr>
+        <td>{{ kota[0] }}</td>
+        <td>{{ kota[1] }}</td>
+        <td>
+          <a
+            href="/hapus/{{ kota[0] }}"
+            onclick="return confirm('Hapus data ini?')"
+          >
+            X
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <br />
+    <a href="/data">Tambah Kota</a>
+  </body>
+</html>

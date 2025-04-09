@@ -1,0 +1,3 @@
+SELECT c.id, c.name, o.id AS order_id, o.order_date
+FROM customers AS c
+LEFT JOIN orders AS o ON c.id = o.customer_id;
