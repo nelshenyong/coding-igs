@@ -1,0 +1,7 @@
+equals(Object Obj): digunakan untuk membandingkan objek-objek yang berbeda
+toString(): digunakan untuk mengkonversi objek menjadi string
+hashCode(): digunakan untuk menghasilkan kode hash dari objek
+getClass(): digunakan untuk mendapatkan kelas dari objek
+clone(): digunakan untuk membuat salinan objek
+finalize(): digunakan untuk membersihkan objek sebelum dihapus
+wait(), notify(), notify all(): digunakan untuk mengatur sinkronisasi thread

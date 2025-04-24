@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import secrets
 from datetime import timedelta
 
-app = Flask(__name__)  # Perbaikan nama
+app = Flask(__name__) 
 app.secret_key = secrets.token_hex(16)
 app.permanent_session_lifetime = timedelta(minutes=5)
 
@@ -74,5 +74,5 @@ def bio():
         )
     return render_template("bio.html")
 
-if __name__ == "__main__":  # Perbaikan nama
+if __name__ == "__main__": 
     app.run(debug=True)

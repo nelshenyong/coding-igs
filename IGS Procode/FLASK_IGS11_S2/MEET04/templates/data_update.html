@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block konten %}
+    <h1>UPDATE DATA KOTA</h1>
+    <form action="/aksi_update" method="post">
+        <input type="hidden" name="id" value="{{ value[0] }}" >
+        NAMA:<input type="text" name="nama" value="{{ value[1] }}" >
+        <button type="submit">UPDATE</button>
+    </form>
+{% endblock %}

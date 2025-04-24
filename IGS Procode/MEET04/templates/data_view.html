@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block konten %}
+    <h1>DATA VIEW</h1>
+
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>NAMA KOTA</td>
+            <td>OPSI</td>
+        </tr>
+
+        {% for item in data %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td> <a href="/hapus/{{ item[0] }}"> ❌ </a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
