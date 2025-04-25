@@ -18,13 +18,13 @@ def home():
 def data():
     return render_template("data.html")
 
-@app.route('/simpan', methods = ["POST", "GET"])
+@app.route('/simpan', methods=["POST", "GET"])
 def simpan():
     cursor = mydb.cursor()
     nama = request.form["nama"]
-    q = "insert into kota ( id, nama ) values( %s, %s )"
-    data =  ( '', nama )
-    cursor.execute( q, data  )
+    q = "INSERT INTO kota (nama) VALUES (%s)"
+    data = (nama,)
+    cursor.execute(q, data)
     mydb.commit()
     cursor.close()
     return redirect("data_view")
@@ -55,17 +55,18 @@ def update(id):
     value = cursor.fetchone()
     return render_template("data_update.html", value = value )
 
-@app.route('/aksi_update', methods = ["POST", "GET"])
+@app.route('/aksi_update', methods=["POST", "GET"])
 def aksi_update():
     cursor = mydb.cursor()
     id = request.form["id"]
     nama = request.form["nama"]
-    q = "update kota set nama = %s where id = %s"
-    data = (id,nama)
+    q = "UPDATE kota SET nama = %s WHERE id = %s"
+    data = (nama, id)  # URUTAN DIUBAH
     cursor.execute(q, data)
     mydb.commit()
     cursor.close()
     return redirect("/data_view")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
