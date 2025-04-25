@@ -61,7 +61,7 @@ def aksi_update():
     id = request.form["id"]
     nama = request.form["nama"]
     q = "UPDATE kota SET nama = %s WHERE id = %s"
-    data = (nama, id)  # URUTAN DIUBAH
+    data = (nama, id)
     cursor.execute(q, data)
     mydb.commit()
     cursor.close()

@@ -29,7 +29,7 @@
   </div>
 </div>
 
-<table class="table">
+<table id="example" class="display" style="width: 100%">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -60,6 +60,13 @@
     </tr>
     {% endif %}
   </tbody>
+  <tfoot>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">NAMA KOTA</th>
+      <th scope="col">OPSI</th>
+    </tr>
+  </tfoot>
 </table>
 
 {% endblock %}
