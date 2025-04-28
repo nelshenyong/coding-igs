@@ -1,1 +1,2 @@
+*.so filter=lfs diff=lfs merge=lfs -text
 IGS[[:space:]]Informatika/Informatika_11[[:space:]]Mr.[[:space:]]Sepri/javafx-sdk-21.0.7/lib/libjfxwebkit.so filter=lfs diff=lfs merge=lfs -text
