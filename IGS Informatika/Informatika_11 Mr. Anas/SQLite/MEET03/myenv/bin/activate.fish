@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV '/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Anas/SQLite/MEET03/myenv'
+set -gx VIRTUAL_ENV '/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Anas/SQLite/03/myenv'
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Anas/SQLite/MEET03/myenv/bin/python3" "$0" "$@"
+'''exec' "/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Anas/SQLite/03/myenv/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

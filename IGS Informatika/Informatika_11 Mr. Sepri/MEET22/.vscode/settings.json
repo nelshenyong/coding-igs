@@ -1,0 +1,15 @@
+{
+  "java.project.sourcePaths": ["src"],
+  "java.project.outputPath": "bin",
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Sepri/javafx-sdk-21.0.7/lib/javafx-swt.jar",
+    "/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Sepri/javafx-sdk-21.0.7/lib/javafx.base.jar",
+    "/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Sepri/javafx-sdk-21.0.7/lib/javafx.controls.jar",
+    "/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Sepri/javafx-sdk-21.0.7/lib/javafx.fxml.jar",
+    "/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Sepri/javafx-sdk-21.0.7/lib/javafx.graphics.jar",
+    "/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Sepri/javafx-sdk-21.0.7/lib/javafx.media.jar",
+    "/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Sepri/javafx-sdk-21.0.7/lib/javafx.swing.jar",
+    "/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Sepri/javafx-sdk-21.0.7/lib/javafx.web.jar"
+  ]
+}
