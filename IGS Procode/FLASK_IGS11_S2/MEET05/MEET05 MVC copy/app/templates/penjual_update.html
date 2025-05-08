@@ -1,0 +1,28 @@
+{% extends 'layout.html' %} {% block konten %}
+<div
+  class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+>
+  <h1 class="h2">UPDATE DATA PENJUAL</h1>
+</div>
+<form action="/aksi_update_penjual" method="post">
+  <input type="hidden" name="id" value="{{ value[0] }}" />
+  <div class="mb-3">
+    <label for="nama" class="form-label">Nama</label>
+    <input type="text" class="form-control" id="nama" name="nama" value="{{ value[1] }}" required>
+  </div>
+  <div class="mb-3">
+    <label for="alamat" class="form-label">Alamat</label>
+    <textarea class="form-control" id="alamat" name="alamat" rows="3" required>{{ value[2] }}</textarea>
+  </div>
+  <div class="mb-3">
+    <label for="kotaid" class="form-label">Kota</label>
+    <select class="form-select" name="kotaid" id="kotaid" required>
+      <option value="">Pilih Kota</option>
+      {% for k in kota %}
+      <option value="{{ k[0] }}" {% if k[1] == value[3] %}selected{% endif %}>{{ k[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+{% endblock %} 

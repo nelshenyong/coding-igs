@@ -1,0 +1,28 @@
+{% extends 'layout.html' %} {% block konten %}
+<div
+  class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+>
+  <h1 class="h2">DATA KATEGORI PENJUAL</h1>
+</div>
+<form action="/simpan_kategoripenjual" method="post">
+  <div class="mb-3">
+    <label for="penjualid" class="form-label">Penjual</label>
+    <select class="form-select" name="penjualid" id="penjualid" required>
+      <option value="">Pilih Penjual</option>
+      {% for p in penjual %}
+      <option value="{{ p[0] }}">{{ p[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="kategoriid" class="form-label">Kategori</label>
+    <select class="form-select" name="kategoriid" id="kategoriid" required>
+      <option value="">Pilih Kategori</option>
+      {% for k in kategori %}
+      <option value="{{ k[0] }}">{{ k[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Simpan</button>
+</form>
+{% endblock %} 

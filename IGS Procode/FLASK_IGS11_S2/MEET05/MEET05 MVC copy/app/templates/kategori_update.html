@@ -1,0 +1,12 @@
+{% extends 'layout.html' %} {% block konten %}
+<div
+  class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+>
+  <h1 class="h2">UPDATE DATA KATEGORI</h1>
+</div>
+<form action="/aksi_update_kategori" method="post">
+  <input type="hidden" name="id" value="{{ value[0] }}" />
+  NAMA:<input type="text" name="nama" value="{{ value[1] }}" />
+  <button type="submit">UPDATE</button>
+</form>
+{% endblock %} 

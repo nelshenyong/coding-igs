@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1"
+            fx:controller="Controller" prefHeight="450.0" prefWidth="600.0">
+
+    <children>
+        <Label layoutX="100.0" layoutY="50.0" text="Nama:">
+            <font><Font size="14.0" /></font>
+        </Label>
+        <TextField fx:id="tfNama" layoutX="100.0" layoutY="70.0" prefHeight="25.0" prefWidth="449.0" promptText="siapa nama kamu?" />
+
+        <Label layoutX="100.0" layoutY="110.0" text="Kelas:" />
+        <TextField fx:id="tfKelas" layoutX="100.0" layoutY="130.0" prefWidth="449.0" promptText="kelas berapa?" />
+
+        <Label layoutX="100.0" layoutY="170.0" text="Usia:" />
+        <TextField fx:id="tfUsia" layoutX="100.0" layoutY="190.0" prefWidth="449.0" />
+
+        <Label layoutX="100.0" layoutY="230.0" text="Bahasa asing:" />
+        <TextField fx:id="tfBahasa" layoutX="100.0" layoutY="250.0" prefWidth="449.0" />
+
+        <Button fx:id="btnSend" layoutX="100.0" layoutY="300.0" mnemonicParsing="false" onAction="#actionSend" text="Send" />
+    </children>
+</AnchorPane>

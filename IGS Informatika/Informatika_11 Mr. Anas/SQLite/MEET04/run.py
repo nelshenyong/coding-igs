@@ -37,7 +37,7 @@ BASE_URL = "http://localhost:5000/players"
 #     payload = {
 #         "current_score": 450
 #     }
-#     response = requests.patch(f"{BASE_URL}/{player_id}", json=payload)
+#     response = requests.patc h(f"{BASE_URL}/{player_id}", json=payload)
 #     print("Status:", response.status_code)
 #     print("Data", response.json())
     

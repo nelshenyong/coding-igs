@@ -1,19 +1,17 @@
 from flask import Flask, render_template, jsonify, request
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
-from gsheet import sheet
+from extensions import db, migrate
+from gsheet import sheet, add_player_row, update_player_row, delete_player_row
 import logging
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+db.init_app(app)
+migrate.init_app(app, db)
 
 from models import Player
 
-# Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -51,25 +49,9 @@ def create_player():
         db.session.commit()
         logger.info(f"Successfully created player in database: {player.name}")
 
-        # Try to add data to Google Sheets if available
         if sheet is not None:
-            try:
-                row = [
-                    player.id,
-                    player.name,
-                    player.age,
-                    player.games_played,
-                    player.highest_score,
-                    player.lowest_score,
-                    player.current_score
-                ]
-                logger.info(f"Attempting to add row to Google Sheets: {row}")
-                sheet.append_row(row)
-                logger.info(f"Successfully added player {player.name} to Google Sheets")
-            except Exception as e:
-                logger.error(f"Failed to add player to Google Sheets: {str(e)}")
-                # Continue even if Google Sheets update fails
-                pass
+            if not add_player_row(sheet, player):
+                logger.error(f"Failed to add player {player.name} to Google Sheets")
         else:
             logger.error("Google Sheets connection is not available")
 
@@ -90,6 +72,13 @@ def update_player(player_id):
                 setattr(player, field, data[field])
         
         db.session.commit()
+
+        if sheet is not None:
+            if not update_player_row(sheet, player):
+                logger.error(f"Failed to update player {player.name} in Google Sheets")
+        else:
+            logger.error("Google Sheets connection is not available")
+
         return jsonify(player.to_dict()), 200
 
     return jsonify({"status": "not found"}), 404
@@ -100,6 +89,13 @@ def delete_player(player_id):
     if player:
         db.session.delete(player)
         db.session.commit()
+
+        if sheet is not None:
+            if not delete_player_row(sheet, player_id):
+                logger.error(f"Failed to delete player {player.name} from Google Sheets")
+        else:
+            logger.error("Google Sheets connection is not available")
+            
         return jsonify({"message": "Player deleted"}), 200
     return jsonify({"status": "not found"}), 404
 

@@ -1,4 +1,4 @@
-from run import db
+from extensions import db
 
 class Player(db.Model):
     __tablename__ = "players"

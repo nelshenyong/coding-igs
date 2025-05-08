@@ -15,8 +15,8 @@
       "name": "App",
       "request": "launch",
       "mainClass": "App",
-      "projectName": "MEET22_c486e75b",
-      "vmArgs": "--module-path \"/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Sepri/javafx-sdk-21.0.7/lib\" --add-modules javafx.controls,javafx.fxml"
+      "projectName": "Informatika_11 Mr. Sepri_fa3975fb",
+      "vmArgs": "--module-path \"/home/nelshenyong/Documents/MyProcode/CODING IGS/IGS Informatika/Informatika_11 Mr. Sepri/MEET22/javafx-sdk-21.0.7/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.media"
     }
   ]
 }
