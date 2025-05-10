@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tester</title>
+</head>
+<body>
+    <h1>INPUT DATA</h1>
+   <form action="/" method="post">
+        <label for="nama">Nama :</label>
+        <input name="nama" id="nama" required type="text"><br>
+        <label for="kelas">kelas :</label>
+        <input name="kelas" id="kelas" required type="text"><br>
+        <button type="submit">Simpan</button>
+   </form>
+    <h2>DATA SISWA</h2>
+    <ul>
+        {% for siswa in siswa_list %}
+            <li>
+                {{ siswa.nama }} - {{ siswa.kelas }} || 
+                <a href="/hapus/{{ siswa.id }}" onclick="return confirm('Hapus data ???')">Hapus</a> - 
+                <a href="/update/{{ siswa.id }}">Update</a> 
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

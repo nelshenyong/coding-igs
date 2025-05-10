@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>INPUT DATA</h1>
+    <form action="/" method="POST">
+      <label for="nama">Nama</label>
+      <input type="text" name="nama" id="nama" required />
+      <label for="kelas">Kelas</label>
+      <input type="text" name="kelas" id="kelas" required />
+      <button type="submit">Simpan</button>
+    </form>
+    <h1>DATA SISWA</h1>
+    <ul>
+      {% for siswa in siswa_list %}
+      <li>
+        {{ siswa.nama }} - {{ siswa.kelas }} ||
+        <a
+          href="/hapus/{{ siswa.id }}"
+          onclick="return confirm('Yakin ingin menghapus data ini?')"
+          >Hapus</a
+        >
+        <a href="/update/{{ siswa.id }}">Update</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
