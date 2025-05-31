@@ -1,4 +1,4 @@
-![alt text](?raw=true)
+![alt text](https://github.com/nelshenyong/coding-igs/blob/main/IGS%20Procode/FLASK_IGS11_S2/MEET07%20PROJECT%20AKHIR/preview.png?raw=true)
 
 # Buddhist Wisdom Hub
 
