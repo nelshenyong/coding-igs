@@ -50,6 +50,10 @@ def get_current_user():
         return User.query.get(session['user_id'])
     return None
 
+@app.context_processor
+def utility_processor():
+    return dict(get_current_user=get_current_user)
+
 def login_required(f):
     def decorated_function(*args, **kwargs):
         if 'user_id' not in session:
@@ -178,6 +182,10 @@ def delete_paritta(paritta_id):
 @login_required
 def edit_profile():
     user = get_current_user()
+    if not user:
+        flash('User not found. Please login again.')
+        session.pop('user_id', None)
+        return redirect(url_for('login'))
     
     if request.method == 'POST':
         username = request.form.get('username')
