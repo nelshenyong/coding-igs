@@ -7,7 +7,7 @@ Aplikasi web yang menyediakan koleksi kutipan Buddha dan paritta.
 ## Fitur
 
 - Koleksi kutipan Buddha yang menginspirasi
-- Perpustakaan paritta (mantra pelindung)
+- Perpustakaan paritta
 - Sistem autentikasi pengguna
 - Panel admin untuk mengelola konten
 - Desain responsif
