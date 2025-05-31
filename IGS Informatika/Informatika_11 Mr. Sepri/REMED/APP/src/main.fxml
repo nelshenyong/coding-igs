@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller" prefHeight="700.0" prefWidth="900.0">
+    <top>
+        <VBox spacing="10" style="-fx-background-color: #2196F3;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <Label text="Kalkulator Fisika" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Label text="Pilih topik fisika yang ingin dihitung:" style="-fx-font-size: 14px; -fx-text-fill: white;"/>
+            <ComboBox fx:id="physicsTopicCombo" prefWidth="300" promptText="Pilih Topik Fisika" style="-fx-font-size: 14px;"/>
+        </VBox>
+    </top>
+    <center>
+        <HBox spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <VBox spacing="10" prefWidth="400">
+                <Label text="Input Nilai" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                <VBox fx:id="inputFields" spacing="10" style="-fx-background-color: #f5f5f5; -fx-padding: 10; -fx-background-radius: 5;"/>
+                <Button fx:id="calculateButton" text="Hitung" onAction="#handleCalculate"
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10 20;"/>
+            </VBox>
+            <VBox spacing="10" prefWidth="400">
+                <Label text="Hasil Perhitungan" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+                <TextArea fx:id="resultArea" prefRowCount="3" prefColumnCount="30" editable="false"
+                         wrapText="true" style="-fx-font-size: 14px; -fx-background-color: #f5f5f5;"/>
+            </VBox>
+        </HBox>
+    </center>
+    <bottom>
+        <VBox spacing="10" style="-fx-background-color: #f5f5f5;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <Label text="Informasi Konsep Fisika" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <TextArea fx:id="informationArea" prefRowCount="4" prefColumnCount="50"
+                     editable="false" wrapText="true" style="-fx-font-size: 14px;"/>
+        </VBox>
+    </bottom>
+</BorderPane>
