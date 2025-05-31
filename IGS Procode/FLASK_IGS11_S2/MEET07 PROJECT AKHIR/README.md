@@ -1,3 +1,5 @@
+![alt text](?raw=true)
+
 # Buddhist Wisdom Hub
 
 Aplikasi web yang menyediakan koleksi kutipan Buddha dan paritta.
