@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Edit Quote</h2>
+  <form method="POST">
+    <div class="mb-3">
+      <label for="content" class="form-label">Quote Content</label>
+      <textarea
+        class="form-control"
+        id="content"
+        name="content"
+        rows="3"
+        required
+      >
+{{ quote.content }}</textarea
+      >
+    </div>
+    <div class="mb-3">
+      <label for="source" class="form-label">Source</label>
+      <input
+        type="text"
+        class="form-control"
+        id="source"
+        name="source"
+        value="{{ quote.source }}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <input
+        type="text"
+        class="form-control"
+        id="category"
+        name="category"
+        value="{{ quote.category }}"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Update Quote</button>
+    <a href="{{ url_for('quotes') }}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}

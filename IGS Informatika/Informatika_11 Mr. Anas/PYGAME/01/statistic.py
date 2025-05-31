@@ -4,6 +4,7 @@ class Statistic:
     game_active = True
     play_again = False
     is_muted = False
+    show_skin_selector = False
 
     high_score = 0
     score = 0

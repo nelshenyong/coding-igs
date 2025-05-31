@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-5">
+  <h2 class="mb-4">Edit Paritta</h2>
+  <form method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        name="title"
+        value="{{ paritta.title }}"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <textarea
+        class="form-control"
+        id="content"
+        name="content"
+        rows="5"
+        required
+      >
+{{ paritta.content }}</textarea
+      >
+    </div>
+    <div class="mb-3">
+      <label for="meaning" class="form-label">Meaning</label>
+      <textarea class="form-control" id="meaning" name="meaning" rows="3">
+{{ paritta.meaning }}</textarea
+      >
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <input
+        type="text"
+        class="form-control"
+        id="category"
+        name="category"
+        value="{{ paritta.category }}"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Update Paritta</button>
+    <a href="{{ url_for('parittas') }}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}

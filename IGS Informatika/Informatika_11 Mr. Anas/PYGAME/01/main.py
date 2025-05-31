@@ -4,12 +4,13 @@ import os
 from random import choice
 
 from conf import Conf
-from statis import Statis
+from statistic import Statistic
 from sprite.plat import plat
 from sprite.bird import Bird
 from sprite.pipe import Pipe
 from sprite.life import Life
 from sprite.basic.score import Score
+from sprite.skin_selector import SkinSelector
 
 from sprite.sound import Sound
 from sprite.basic.label import Label
@@ -30,10 +31,11 @@ class Game:
         #self.player_entry = Entry (self,"player")
         self.login_button = Button(self, "MASUK")
         # self.play_button = Playbutton(self)
-        self.play_button = Button(self,"play now")
+        self.play_button = Button(self,"PLAY NOW")
         self.play_again_button = Button(self,"PLAY AGAIN")
-        self.exit_button = Button(self,"exit")
-        self.reposition_play_again_and_exit_button()
+        self.exit_button = Button(self,"EXIT")
+        self.skin_button = Button(self, "CHANGE SKIN")
+        self.reposition_buttons()
         self.plat = plat(self)
         self.bird = Bird(self)
         self.life = Life(self)
@@ -42,15 +44,40 @@ class Game:
         self.sound = Sound(self)
         self.sound.play()
         self.mutebutton = MuteButton(self) 
+        self.skin_selector = SkinSelector(self)
         #self.play_backsound("sound.mp3")
     #def play_backsound(self,song):
         #pygame.mixer.music.load(os.path.join(Conf.BASE_DIR, "assets/sound", "sound.mp3"))
         #pygame.mixer.music.set_volume(.05)
         #pygame.mixer.music.play(loops =-1)
 
-    def reposition_play_again_and_exit_button(self):
-        self.play_again_button.rect.y -= 70
-        self.play_again_button.text_image_rect.centery = self.play_again_button.rect.centery + 10
+    def reposition_buttons(self):
+        # Position buttons vertically with proper spacing
+        center_x = self.screen_rect.centerx
+        start_y = self.screen_rect.centery + 50
+        
+        # Home screen buttons
+        self.login_button.rect.centerx = center_x
+        self.login_button.rect.centery = start_y
+        self.login_button.text_image_rect.center = self.login_button.rect.center
+        
+        self.play_button.rect.centerx = center_x
+        self.play_button.rect.centery = start_y + 70
+        self.play_button.text_image_rect.center = self.play_button.rect.center
+        
+        self.skin_button.rect.centerx = center_x
+        self.skin_button.rect.centery = start_y + 140
+        self.skin_button.text_image_rect.center = self.skin_button.rect.center
+        
+        # Game over screen buttons
+        self.play_again_button.rect.centerx = center_x
+        self.play_again_button.rect.centery = start_y
+        self.play_again_button.text_image_rect.center = self.play_again_button.rect.center
+        
+        self.exit_button.rect.centerx = center_x
+        self.exit_button.rect.centery = start_y + 70
+        self.exit_button.text_image_rect.center = self.exit_button.rect.center
+
     def check_event(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -67,37 +94,42 @@ class Game:
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
 
-                if  self.mutebutton.rect.collidepoint(mouse_pos):
+                if self.mutebutton.rect.collidepoint(mouse_pos):
                     self.mutebutton.toggle_mute()
 
-                if Statis.intro:
+                if Statistic.show_skin_selector:
+                    self.check_skin_selector_buttons(mouse_pos)
+                elif Statistic.intro:
                     self.check_onclick_login_button(mouse_pos)
-                elif Statis.play_again:
+                    if self.skin_button.rect.collidepoint(mouse_pos):
+                        Statistic.show_skin_selector = True
+                elif Statistic.play_again:
                     self.check_onclick_exit_button(mouse_pos)
                     self.check_onclick_play_again_button(mouse_pos)
-                elif not Statis.game_active:
+                    if self.skin_button.rect.collidepoint(mouse_pos):
+                        Statistic.show_skin_selector = True
+                elif not Statistic.game_active:
                     self.check_onclick_play_button(mouse_pos)
-                #if  self.mutebutton.rect.collidepoint(mouse_pos):
-                    #self.mutebutton.toggle_mute()
+                    if self.skin_button.rect.collidepoint(mouse_pos):
+                        Statistic.show_skin_selector = True
 
-                             
     def check_onclick_login_button(self, mouse_pos):
         if self.login_button.rect.collidepoint(mouse_pos):
-            Statis.intro = False
+            Statistic.intro = False
     def check_onclick_play_button(self, mouse_pos):
         if self.play_button.rect.collidepoint(mouse_pos):
-            Statis.game_active =True
+            Statistic.game_active =True
           
     def check_onclick_exit_button(self, mouse_pos):
         if self.exit_button.rect.collidepoint(mouse_pos):
             sys.exit()
     def check_onclick_play_again_button(self,mouse_pos):
         if self.play_again_button.rect.collidepoint(mouse_pos):
-            Statis.life -= 1
+            Statistic.life -= 1
             self.reset_pipes()
             self.bird.rect.center = self.screen_rect.center
-            Statis.play_again = False
-            Statis.game_active = True
+            Statistic.play_again = False
+            Statistic.game_active = True
             self.score.reset()
 
     def check_bird_get_point(self):
@@ -116,8 +148,8 @@ class Game:
         collision_platform = pygame.Rect.colliderect(self.bird.rect, self.plat.rect)
 
         if collision_pipes or collision_platform:
-           Statis.game_active = False
-           Statis.play_again = True
+           Statistic.game_active = False
+           Statistic.play_again = True
     def set_fps(self):
         pygame.time.Clock().tick(Conf.FPS)
         pygame.display.flip()
@@ -143,26 +175,32 @@ class Game:
     def game_intro(self):
         self.game_title_label.show()
         self.login_button.show()
+        self.skin_button.show()
         self.life.show() 
         self.mutebutton.show()
 
     def game_play(self):
-        self.bird.show()
-        for pipe in self.pipes:
-            pipe.show()
-        self.plat.show()
-        self.life.show()
-        self.mutebutton.show()
-        self.score.show()
+        if Statistic.show_skin_selector:
+            self.skin_selector.show()
+        else:
+            self.bird.show()
+            for pipe in self.pipes:
+                pipe.show()
+            self.plat.show()
+            self.life.show()
+            self.mutebutton.show()
+            self.score.show()
         
 
-        if not Statis.game_active and not Statis.play_again:
+        if not Statistic.game_active and not Statistic.play_again:
             self.game_title_label.show()
             self.play_button.show()
-        elif Statis.play_again:
+            self.skin_button.show()
+        elif Statistic.play_again:
             self.play_again_button.show()
             self.exit_button.show()
-        elif Statis.game_active:
+            self.skin_button.show()
+        elif Statistic.game_active:
             self.update_bird_activity()
             self.update_pipes_activity()
             self.update_platform_activity()
@@ -186,7 +224,7 @@ class Game:
         while True:
             self.screen.fill(Conf.SCREEN_BG_COLOR)
 
-            if Statis.intro:
+            if Statistic.intro:
                 self.game_intro()
             else :
                 self.game_play()
@@ -194,6 +232,17 @@ class Game:
         
             self.set_fps() 
             self.check_event()
+
+    def check_skin_selector_buttons(self, mouse_pos):
+        if self.skin_selector.prev_button.rect.collidepoint(mouse_pos):
+            self.skin_selector.prev_skin()
+        elif self.skin_selector.next_button.rect.collidepoint(mouse_pos):
+            self.skin_selector.next_skin()
+        elif self.skin_selector.select_button.rect.collidepoint(mouse_pos):
+            self.bird.change_skin(self.skin_selector.get_current_skin())
+            Statistic.show_skin_selector = False
+        elif self.skin_selector.back_button.rect.collidepoint(mouse_pos):
+            Statistic.show_skin_selector = False
 
 if __name__ == "__main__":
     game = Game()

@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block title %}Add Quote - Buddhist Wisdom Hub{%
+endblock %} {% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="text-center">Add New Buddhist Quote</h3>
+      </div>
+      <div class="card-body">
+        <form method="POST">
+          <div class="mb-3">
+            <label for="content" class="form-label">Quote Content</label>
+            <textarea
+              class="form-control"
+              id="content"
+              name="content"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="source" class="form-label">Source</label>
+            <input
+              type="text"
+              class="form-control"
+              id="source"
+              name="source"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-control" id="category" name="category" required>
+              <option value="wisdom">Wisdom</option>
+              <option value="meditation">Meditation</option>
+              <option value="compassion">Compassion</option>
+              <option value="mindfulness">Mindfulness</option>
+              <option value="peace">Peace</option>
+            </select>
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Add Quote</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

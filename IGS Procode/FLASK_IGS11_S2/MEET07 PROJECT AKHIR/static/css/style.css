@@ -1,0 +1,77 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.footer {
+  margin-top: auto;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.quote-card {
+  border-left: 4px solid #007bff;
+}
+
+.paritta-card {
+  border-left: 4px solid #28a745;
+}
+
+.favorite-btn {
+  transition: all 0.2s;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.05);
+}
+
+.display-4 {
+  color: #2c3e50;
+}
+
+.lead {
+  color: #6c757d;
+}
+
+.card-title {
+  color: #2c3e50;
+}
+
+.card-text {
+  color: #495057;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  border-color: #007bff;
+}

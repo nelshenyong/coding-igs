@@ -23,28 +23,36 @@ class Playbutton:
         self.Screen.blit(self.image,self.rect)
 
 class Button:
-    def __init__(self,Game,text):
+    def __init__(self, Game, text):
         self.screen = Game.screen
         self.screen_rect = Game.screen_rect
 
-        width = (len(text)-4)* Conf.BUTTON_FONT_SIZE//1.5
-        self.rect = pygame.Rect(0,0,Conf.BUTTON_WIDTH + width, Conf.BUTTON_HEIGHT)
-        self.font_path = os.path.join(Conf.BASE_DIR,"assets/fonts",Conf.FONT_FAMILY)
-        self.color =(0, 0, 0)
+        # Increase button size for better clickability
+        width = max(200, (len(text) + 4) * Conf.BUTTON_FONT_SIZE)
+        height = Conf.BUTTON_HEIGHT + 20  # Make buttons taller
+        
+        self.rect = pygame.Rect(0, 0, width, height)
+        self.font_path = os.path.join(Conf.BASE_DIR, "assets/fonts", Conf.FONT_FAMILY)
+        self.color = Conf.BUTTON_COLOR
+        self.hover_color = (150, 255, 50)  # Lighter color for hover effect
+        self.is_hovered = False
         self.text_to_image(text)
 
-    def text_to_image(self,text):
-        
-        self.font = pygame.font.Font(self.font_path,Conf.BUTTON_FONT_SIZE)
+    def text_to_image(self, text):
+        self.font = pygame.font.Font(self.font_path, Conf.BUTTON_FONT_SIZE)
         self.text_image = self.font.render(text, True, Conf.FONT_COLOR)
         
         self.text_image_rect = self.text_image.get_rect()
-        
-        self.rect.center = self.screen_rect.center
-        self.rect.y += 100
         self.text_image_rect.center = self.rect.center
-        self.text_image_rect.y += 8
 
-    def  show(self):
-        pygame.draw.rect(self.screen,self.color,self.rect)
-        self.screen.blit(self.text_image,self.text_image_rect)
+    def check_hover(self, mouse_pos):
+        self.is_hovered = self.rect.collidepoint(mouse_pos)
+
+    def show(self):
+        # Draw button with hover effect
+        color = self.hover_color if self.is_hovered else self.color
+        pygame.draw.rect(self.screen, color, self.rect, border_radius=10)  # Rounded corners
+        pygame.draw.rect(self.screen, (0, 0, 0), self.rect, 2, border_radius=10)  # Border
+        
+        # Draw text
+        self.screen.blit(self.text_image, self.text_image_rect)

@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block title %}Home - Buddhist Wisdom Hub{% endblock
+%} {% block content %}
+<div class="row">
+  <div class="col-md-12 text-center mb-4">
+    <h1 class="display-4">Welcome to Buddhist Wisdom Hub</h1>
+    <p class="lead">
+      Discover the timeless wisdom of Buddhist teachings and paritta
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <h2>Latest Buddhist Quotes</h2>
+    <div class="row">
+      {% for quote in quotes %}
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <p class="card-text">{{ quote.content }}</p>
+            <p class="card-text">
+              <small class="text-muted">- {{ quote.source }}</small>
+            </p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <h2>Featured Paritta</h2>
+    {% for paritta in parittas %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ paritta.title }}</h5>
+        <p class="card-text">{{ paritta.content[:100] }}...</p>
+        <a href="{{ url_for('parittas') }}" class="btn btn-primary"
+          >Read More</a
+        >
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-12">
+    <div class="card bg-light">
+      <div class="card-body">
+        <h3 class="card-title">Daily Buddhist Teaching</h3>
+        <p class="card-text">
+          "The mind is everything. What you think you become." - Buddha
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
